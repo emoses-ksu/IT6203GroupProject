@@ -1,0 +1,32 @@
+<br />
+<div>
+    <button value="Home" mat-button [routerLink]="['/']">Home</button>&nbsp;&nbsp;
+    <div>
+        <div>
+            <form style="color: black;">
+                <h2>Individual Counseling - Scheduled Appointment Details  </h2>
+                <ul *ngFor="let detail of appointmentDetails let i = index">
+                    <li>
+                        <b>Name:</b>
+                        {{detail.firstname}} {{detail.lastname}} - {{detail.gender}} <br />
+                        <b>Contact Information </b><br />
+                        <u>Phone:</u> {{detail.phone}} <br /> <u>Email ID:</u> {{detail.emailid}}<br /> <u>KSU ID:</u>
+                        {{detail.ksuid}} <br />
+                        <b>Appointment Date & Time:</b><br />
+                        {{detail.date}} {{detail.time}} <br />
+                        <b>Appointment Information</b><br />
+                        <u>Requested Service:</u> <b> {{detail.requestedService}}</b> <br />
+                        <u>Counselor:</u> <b> {{detail.counselor}}</b><br />
+                        <u>Counseling Mode:</u> {{detail.counselingMode}}<br/> 
+                        <u>Appointment Type:</u> {{detail.appointmentType}} <br />
+                        <u>Additional Info:</u> {{detail.additionalInformation}}
+                        <br /><br />
+                        <div class = "borderCss">
+                        <label> **NOTE** </label> 
+                            You will get notification on email about the Individual Counseling Session Details </div><br/> 
+                        <button class = "buttonCss" mat-button color="warn" (click)="onDelete(detail._id)">CANCEL APPOINTMENT</button> &nbsp; &nbsp; &nbsp;
+                        <button class = "buttonCss" mat-button color="primary"  [routerLink]="['/editappointment/', detail._id]">UPDATE APPOINTMENT</button>
+                    </li>
+                </ul>
+            </form>
+        </div>

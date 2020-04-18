@@ -21,10 +21,14 @@
       </mat-form-field>
       <br>
       <p>
+        <button class = "button" (click)="momentDateConverter()" [disabled]="blogForm.invalid" type="submit" mat-raised-button>Submit</button>&nbsp;&nbsp;
+        <button class = "button" type ="reset" (click)="resetForm()" mat-raised-button>Reset</button>
+      </p>
+      <!--<p>
         <button class="button" type="submit" mat-raised-button (click)="momentDateConverter()"> Submit</button>
       </p>
       <p>
         <button class="button" type="reset" (click)="resetForm()" mat-raised-button> Reset</button>
-      </p>
+      </p>-->
 </form>
   </div>

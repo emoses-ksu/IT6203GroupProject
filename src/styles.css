@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+/**html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+/* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~material-design-icons/iconfont/material-icons.css';
 
@@ -7,6 +12,7 @@ body {
     font-family: Trebuchet, Verdana, Arial;
     margin: 0px;
     height: 100%;
+    font-weight: bold;
 }   
 html {
     border-color: #ffc629;
@@ -18,7 +24,7 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 }
 
 mat-sidenav {
-    width: 200px;
+    width: 250px;
 }
 
 head {
@@ -30,7 +36,7 @@ form {
     font-family: Trebuchet, Verdana, Arial;
     margin-right: 100px;
     display: block;
-    width: 300px;
+    width: 500px;
 }
 mat-form-field { 
     display: block;
@@ -47,11 +53,15 @@ span {
 }
 .header { 
     text-align: center;
-    padding: 5px;
+    padding: 15px;
     margin: auto;
-    font-size: 15px;
     font-family: Trebuchet, Verdana, Arial;
-    background-color: #ffc629;
+   /** background-color: #ffc629; */
+    background-color: rgb(255, 198, 41);
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    height : 30px
 }
 .footer { 
     background-color: #ffc629;
@@ -61,12 +71,13 @@ span {
 }
 .newBlogPost { 
     text-align: left;
-    margin-left: 500px;
+    margin-left: 100px;
     float: left;
     padding: 5px;
     font-size: 15px;
     font-family: Trebuchet, Verdana, Arial;
     background-color: #F5F5F5;
+    width: 300px;
     }
 
 .blogMenu {
@@ -87,7 +98,68 @@ span {
     color: white; 
     margin-top: 20px;
     opacity: 1.0;
-}
+} 
 mat-icon { 
     color: #231f20;
 }
+button{
+    background-color: #E5E5E5;
+    color: black;   
+    text-align: center;
+    border: 1px solid #231f20; 
+    cursor : pointer; 
+    margin: 8px; 
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  button:hover{
+  background-color: #FEBC11;
+  color: #000000;
+  }
+  
+  button:disabled,
+  button[disabled]{
+  border: 1px solid #b0b3b2;
+  background-color: #dfdfdf;
+  color: #868686;
+  }
+
+ /** .toolbar {
+    height: 79px;
+    margin: 0px;
+    display: flex;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    align-items: center;
+  } **/
+
+  .toolbar {
+    height: 82px;
+    margin: 0px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+  }
+  .initialimg,.message,.date {
+    background: black;
+    color: white;
+    flex: 0;
+  }
+  .message{
+    padding-left : 8px;
+  }
+  .date{ 
+      flex : 1;
+      justify-content: space-evenly;
+      text-align: right; 
+      flex-basis: 150%; 
+   }
+  .initialimg img{
+      width: 80px;
+  }
+  

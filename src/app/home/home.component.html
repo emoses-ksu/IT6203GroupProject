@@ -1,0 +1,96 @@
+<br/>
+<div>
+    <h1>{{pageName}}</h1>
+    <p>Welcome to KSU Counseling and Psychological wellness center. In your daily life, you might encounter lot of
+      challenges,work load which give depression, stress or any kind issues or confusion that you need to be addressed.
+      As a KSU students, you can get variety of counseling services from our staff members. You can find the best service
+      that fits your need from our resources information.<br />
+    </p>
+    <p>Need Individual Counseling! -> Schedule an appointment  <br />
+      Not sure what you're experencing! Start Here -> Take a screening <br />
+      Need to Walk-in -> Hours & Location <br/>
+      Need to Trust us -> Know our Staff
+    </p>
+    <div *ngIf = "questionCount">
+      <h4>You Screening Test answers are saved. Our counselors will analyse your answers and provide the necessary advise and guidance in addressing your issue  </h4>
+    </div> <br/>
+  <!--<button value="Appointments"color ="yellow" [matMenuTriggerFor]="menu">Individual Counseling</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/scheduleappointment']" routerLinkActive="active">Schedule an Appointment</button>
+    <button mat-menu-item [routerLink]="['/viewappointment']">View Appointment Details</button>
+  </mat-menu>-->
+  <button value="TakeScreening" [routerLink]= "['/personalitytest']">Take a Screening</button>
+  <button value="HoursLocation" [routerLink]= "['/hours-locations']">Hours & Location</button>
+  <button value ="KnowOurStaff" (click) = "setStaffVar()">Know our Staff</button>
+  <br/>
+  <br/>
+  <router-outlet></router-outlet>
+  <div *ngIf = getStaffVar()>
+  <table>
+    <tr>
+      <th>Staff Name</th>
+      <th>Staff Details</th>
+      <th>Email Contact</th>
+    </tr>
+    <tr>
+      <td>Nisha Chande</td>
+      <td>Board Certified Psychiatrist </td> 
+        <td>nchande@kennesaw.edu</td>
+    </tr>
+    <tr>
+      <td>Shelli Cossel, MA, LPC, CPCS</td>
+      <td>Licensed Professional Counselor<br/>
+        Certified Professional Counselor Supervisor</td> 
+        <td>scossel@kennesaw.edu</td>
+    </tr>
+    <tr>
+      <td>Amy Dickinson,MS, LPC</td>
+      <td>Licensed Professional Counselor</td>
+        <td>adickin9@kennesaw.edu</td>
+    </tr>
+    <tr>
+      <td>Elisheva Funk, LCSW</td>
+      <td>Licensed Clinical Social Worker</td>
+        <td>efunk4@kennesaw.edu</td>
+    </tr>
+    <tr>
+      <td>Anthony Hansen, PhD</td>
+      <td>Staff Counselor</td>
+        <td>ahanse19@kennesaw.edu</td>
+    </tr>
+    <tr>
+      <td>Alesha Harris, PhD</td>
+      <td>Staff Counselor</td>
+        <td>aharr393@kennesaw.edu</td>
+    </tr>
+    <tr>
+      <td>Maureen O'Donnell, MS, LPC</td>
+      <td>Licensed Professional Counselor</td>
+        <td>modonn10@kennesaw.edu</td>
+    </tr>
+    <tr>
+      <td>Opal Ojeda, PhD</td>
+      <td>Staff Counselor </td> 
+        <td>oojeda@kennesaw.edu</td>
+    </tr>
+    <tr>
+      <td>Sandra Scheier, MS, LPC</td>
+      <td>Staff Counselor</td>
+        <td>sscheier@kennesaw.edu</td>
+    </tr>
+    <tr>
+      <td>Marcuetta Sims, PhD</td>
+      <td>Licensed Psychologist</td>
+        <td>msims55@kennesaw.edu</td>
+    </tr>
+    <tr>
+      <td>Sheldon Rifkin, PhD</td>
+      <td>
+        Licensed Psychologist <br/>
+        Assistant Professor of Psychology</td> 
+        <td>srifkin@kennesaw.edu </td>
+    </tr>
+  </table>
+</div>
+  <br/>
+</div>

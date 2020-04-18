@@ -9,7 +9,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -28,10 +27,23 @@ import { MatTableModule } from '@angular/material/table';
 import { ListResourcesComponent } from './list-resources/list-resources.component';
 import { NewResourceFormComponent } from './new-resource-form/new-resource-form.component';
 import { ResourceService } from './resource.service';
+import { HomeComponent } from './home/home.component';
+import { ScheduleappointmentComponent } from './scheduleappointment/scheduleappointment.component';
+import { ViewappointmentComponent } from './viewappointment/viewappointment.component';
+import { HoursLocationsComponent } from './hours-locations/hours-locations.component';
+import { PersonalitytestComponent } from './personalitytest/personalitytest.component';
+import { MatButtonModule } from '@angular/material/button';
+import {MatNativeDateModule } from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import { AppointmentService } from './appointment.service';
+import { QuestionnarieService } from './questionnarie.service';
+
 
 const appRoutes: Routes = [ {
   path: '',                     //default component to display
-   component: ListBlogsComponent
+   //component: ListBlogsComponent
+   component: HomeComponent
  },       {
    path: 'addBlog',         //when blog added 
    component: NewBlogPostComponent
@@ -53,11 +65,33 @@ const appRoutes: Routes = [ {
   {
     path: 'addResource',         
     component: NewResourceFormComponent
-  },  
+  }, 
+  {
+    path: 'viewappointment',
+    component:ViewappointmentComponent
+  },
+   {
+     path: 'hours-locations', 
+     component:HoursLocationsComponent
+   },
+   {
+     path: 'editappointment/:_id', 
+     component: ScheduleappointmentComponent
+   },
+   {
+     path: 'personalitytest',
+     component: PersonalitytestComponent
+   },
+   {
+     path: 'scheduleappointment',
+     component: ScheduleappointmentComponent
+   }, 
           {
    path: '**',                 //when path cannot be found
    component: NotFoundComponent
- }
+ },
+ 
+
 ];
 
 @NgModule({
@@ -68,7 +102,12 @@ const appRoutes: Routes = [ {
     ListBlogsComponent,
     NotFoundComponent,
     ListResourcesComponent,
-    NewResourceFormComponent
+    NewResourceFormComponent,
+    HomeComponent,
+    PersonalitytestComponent,
+    ScheduleappointmentComponent,
+    HoursLocationsComponent,
+    ViewappointmentComponent
   ],
   imports: [
     BrowserModule,
@@ -90,9 +129,12 @@ const appRoutes: Routes = [ {
     MatMomentDateModule,
     ReactiveFormsModule,
     MatTableModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatButtonModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [BlogService, ResourceService],
+  providers: [BlogService, ResourceService,AppointmentService,QuestionnarieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

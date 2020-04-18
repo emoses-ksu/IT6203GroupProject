@@ -1,0 +1,125 @@
+<br/>
+  <button value="Home" mat-button [routerLink]="['/']" >Home</button>&nbsp;&nbsp;
+<br/>
+    <div>
+    <form (ngSubmit)="onSubmit(apptForm)" [formGroup]="apptForm" autocomplete="off">
+      <h2 [innerHTML] = 'formName'></h2><br/>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input  matInput type= "text" placeholder="First Name" formControlName="firstname">
+        <mat-error *ngIf = "apptForm.get('firstname').hasError('required')">FirstName is required</mat-error>
+        <mat-error *ngIf = "apptForm.get('firstname').hasError('pattern')"> FirstName can include only alphabets</mat-error>
+        <mat-error *ngIf = "apptForm.get('firstname').hasError('minlength')">FirstName must have atleast 2 alphabets</mat-error>
+        <mat-error *ngIf = "apptForm.get('firstname').hasError('maxlength')">Firstname can include only 50 characters</mat-error>
+      </mat-form-field><br/>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input  matInput  placeholder="Last Name" formControlName="lastname">
+        <mat-error *ngIf = "apptForm.get('lastname').hasError('required')">LastName is required</mat-error>
+        <mat-error *ngIf = "apptForm.get('lastname').hasError('pattern')">LastName can include only alphabets</mat-error>
+        <mat-error *ngIf = "apptForm.get('lastname').hasError('minlength')">LastName must have atleast 2 alphabets</mat-error>
+        <mat-error *ngIf = "apptForm.get('lastname').hasError('maxlength')">LastName can include only 50 characters</mat-error>
+      </mat-form-field><br/>
+      <mat-form-field>
+        <mat-label>Phone No</mat-label>
+        <input  matInput  placeholder="Phone No"  formControlName="phone">
+        <mat-error *ngIf = "apptForm.get('phone').hasError('pattern')">Phone must be this pattern => 111-222-3333</mat-error>
+      </mat-form-field><br/>
+      <mat-form-field>
+        <mat-label>Email ID</mat-label>
+        <input  matInput  placeholder="Email ID" formControlName="emailid">
+        <mat-error *ngIf = "apptForm.get('emailid').hasError('pattern')">Email Id format should be => abc@def.com</mat-error>
+        <mat-error *ngIf = "apptForm.get('emailid').hasError('required')">Email Id is required</mat-error>
+      </mat-form-field><br/>
+      <mat-form-field>
+        <mat-label>KSU ID</mat-label>
+        <input  matInput  placeholder="KSU ID" formControlName="ksuid">
+        <mat-error *ngIf = "apptForm.get('ksuid').hasError('required')">KSU ID is required</mat-error>
+        <mat-error *ngIf = "apptForm.get('ksuid').hasError('pattern')">KSU ID can include only numbers and alphabets</mat-error>
+        <mat-error *ngIf = "apptForm.get('ksuid').hasError('minlength')">KSU ID must have atleast 2 characters</mat-error>
+        <mat-error *ngIf = "apptForm.get('ksuid').hasError('maxlength')">KSU ID can include only 10 characters</mat-error>
+      </mat-form-field><br/>
+      <mat-form-field>
+        <mat-label>Appointment Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" (dateInput)="checkDate($event.value)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf = "apptForm.get('date').hasError('required')">Appointment Date should be selected</mat-error>
+      </mat-form-field><br/>
+      <mat-form-field>
+        <mat-label>Available Time Slot</mat-label>
+        <mat-select  placeholder="time" formControlName="time">
+        <mat-option value="10.00 AM - 11.00 AM">10.00 AM - 11.00 AM</mat-option>
+        <mat-option value="11.00 AM - 12.00 PM">11.00 AM - 12.00 PM</mat-option>
+        <mat-option value="12.00 PM - 1.00 PM">12.00 PM - 1.00 PM</mat-option>
+        <mat-option value="1.00 PM - 2.00 PM">1.00 PM - 2.00 PM</mat-option>
+        <mat-option value="2.00 PM - 3.00 PM">2.00 PM - 3.00 PM</mat-option>
+        <mat-option value="3.00 PM - 4.00 PM">3.00 PM - 4.00 PM</mat-option>
+      </mat-select>
+      <mat-error *ngIf = "apptForm.get('time').hasError('required')">Time Slot should be selected</mat-error>
+      </mat-form-field><br/>  
+      <mat-label>Gender</mat-label> <br/>
+      <mat-radio-group  formControlName="gender">&nbsp; &nbsp;
+          <mat-radio-button  value="Male">Male</mat-radio-button>&nbsp; &nbsp;
+          <mat-radio-button  value="Female">Female</mat-radio-button>&nbsp; &nbsp;
+      </mat-radio-group><br/><br/>
+      <mat-label>Counseling Mode *</mat-label><br/>
+      <mat-radio-group formControlName="counselingMode" required>&nbsp; &nbsp;
+          <mat-radio-button  value="Skype Call">Skype Call</mat-radio-button>&nbsp; &nbsp;
+          <mat-radio-button  value="Direct-Walkin">Direct-Walkin</mat-radio-button>&nbsp; &nbsp;
+      </mat-radio-group><br/><br/>
+      <mat-form-field>
+        <mat-label>Counseling Center Campus</mat-label>
+        <mat-select  placeholder="University Campus" formControlName="campus">
+        <mat-option value="Kennesaw Campus">Kennesaw Campus</mat-option>
+        <mat-option value="Marietta Campus">Marietta Campus</mat-option>     
+        </mat-select>
+      </mat-form-field><br/>
+      <mat-label>Appointment Type *</mat-label><br/>
+      <mat-radio-group formControlName="appointmentType" required>&nbsp; &nbsp;
+          <mat-radio-button  value="One-Time">One-Time</mat-radio-button> &nbsp; &nbsp;
+          <mat-radio-button  value="Follow-Up">Follow-Up</mat-radio-button>&nbsp; &nbsp;
+      </mat-radio-group><br/><br/>
+      <mat-form-field>
+        <mat-label>Requested Service</mat-label>
+            <mat-select class="dropdown" formControlName="requestedService" placeholder="Requested Service">
+              <mat-option value="Anxiety">Anxiety</mat-option>
+              <mat-option value="Stress">Stress</mat-option>
+              <mat-option value="Depression">Depression</mat-option>
+              <mat-option value="Low SelfConfidence">Low SelfConfidence</mat-option>
+              <mat-option value="Life-College Balance">Life-College Balance</mat-option>
+              <mat-option value="Relational Violence/Sexual Assualt">Relational Violence/Sexual Assualt</mat-option>
+              <mat-option value="Decision making difficulties">Decision making difficulties</mat-option>
+              <mat-option value="Hopelessness/Suicidal thoughts">Hopelessness/Suicidal thoughts</mat-option>
+        </mat-select>
+        <mat-error *ngIf = "apptForm.get('requestedService').hasError('required')">Requested Service should be selected</mat-error>
+    </mat-form-field><br/>
+    <mat-form-field>
+      <mat-label>Counselor</mat-label>
+        <mat-select formControlName="counselor" placeholder="Counselor">
+        <mat-option value="Nisha Chande">Nisha Chande</mat-option>
+        <mat-option value="Shelli Cossel">Shelli Cossel</mat-option>
+        <mat-option value="Amy Dickinson">Amy Dickinson</mat-option>
+        <mat-option value="Elisheva Funk">Elisheva Funk</mat-option>
+        <mat-option value="Anthony Hansen">Anthony Hansen</mat-option>
+        <mat-option value="Alesha Harris">Alesha Harris</mat-option>
+        <mat-option value="Maureen O'Donnell">Maureen O'Donnell</mat-option>
+        <mat-option value="Opal Ojeda">Opal Ojeda</mat-option>
+        <mat-option value="Sandra Scheier">Sandra Scheier</mat-option>
+        <mat-option value="Marcuetta Sims">Marcuetta Sims</mat-option>
+        <mat-option value="Sheldon Rifkin">Sheldon Rifkin</mat-option>
+      </mat-select>
+      <mat-error *ngIf = "apptForm.get('counselor').hasError('required')">Preferred Counselor should be selected </mat-error>
+    </mat-form-field><br/>
+      <mat-form-field>
+        <mat-label>Any additional information you would like to share</mat-label>
+        <textarea formControlName="additionalInformation"  matInput ></textarea>
+    </mat-form-field><br/>
+      <p>
+        <button class = "button" [disabled]="apptForm.invalid" type="submit" mat-raised-button>Submit</button>&nbsp;&nbsp;
+        <button class = "button" type ="reset" mat-raised-button>Reset</button>
+      </p>
+    </form>
+  </div>
+
+    

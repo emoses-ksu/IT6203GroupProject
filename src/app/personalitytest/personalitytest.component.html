@@ -1,0 +1,80 @@
+<br/>
+  <button value="Home" mat-button (click) = checkQueVar() [routerLink]="['/']" >Home</button>&nbsp;&nbsp;
+<br/>
+    <div>
+        <form (ngSubmit)="onSubmit(queForm)" [formGroup]="queForm">
+<mat-label>Have you been worried by feeling down, depressed, or incompetent?</mat-label> <br/>
+<mat-radio-group  formControlName="question1" required>&nbsp; &nbsp;
+    <mat-radio-button  value="Not at all">Not at all</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Rarely">Rarely</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Most of the days">Most of the days</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Everyday">Everyday</mat-radio-button>&nbsp; &nbsp;
+</mat-radio-group><br/><br/>
+<mat-label>Have you been bothered by feeling bored or fatigue without attempting any work? *</mat-label> <br/>
+<mat-radio-group  formControlName="question2" required>&nbsp; &nbsp;
+    <mat-radio-button  value="Not at all">Not at all</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Rarely">Rarely</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Most of the days">Most of the days</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Everyday">Everyday</mat-radio-button>&nbsp; &nbsp;
+</mat-radio-group><br/><br/>
+<mat-label>Have you had an anxiety attack (suddenly feeling fear or panic)? *</mat-label> <br/>
+<mat-radio-group  formControlName="question3" required>&nbsp; &nbsp;
+    <mat-radio-button  value="Not at all">Not at all</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Rarely">Rarely</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Most of the days">Most of the days</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Everyday">Everyday</mat-radio-button>&nbsp; &nbsp;
+</mat-radio-group><br/><br/>
+<mat-label>Have you been disturbed by feeling nervous, fearful or on edge? *</mat-label> <br/>
+<mat-radio-group  formControlName="question4" required>&nbsp; &nbsp;
+    <mat-radio-button  value="Not at all">Not at all</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Rarely">Rarely</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Most of the days">Most of the days</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Everyday">Everyday</mat-radio-button>&nbsp; &nbsp;
+</mat-radio-group><br/><br/>
+<mat-label>Have you ever felt that you couldn’t socialize with friends and family? *</mat-label> <br/>
+<mat-radio-group  formControlName="question5" required>&nbsp; &nbsp;
+    <mat-radio-button  value="Not at all">Not at all</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Rarely">Rarely</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Most of the days">Most of the days</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Everyday">Everyday</mat-radio-button>&nbsp; &nbsp;
+</mat-radio-group><br/><br/>
+<mat-label>Have you been suffering from insomnia? *</mat-label> <br/>
+<mat-radio-group  formControlName="question6" required>&nbsp; &nbsp;
+    <mat-radio-button  value="Not at all">Not at all</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Rarely">Rarely</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Most of the days">Most of the days</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Everyday">Everyday</mat-radio-button>&nbsp; &nbsp;
+</mat-radio-group><br/><br/>
+<mat-label>Have you been confident about your decision-making abilities? *</mat-label> <br/>
+<mat-radio-group  formControlName="question7" required>&nbsp; &nbsp;
+    <mat-radio-button  value="Not at all">Not at all</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Rarely">Rarely</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Most of the days">Most of the days</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Everyday">Everyday</mat-radio-button>&nbsp; &nbsp;
+</mat-radio-group><br/><br/>
+<mat-label>Have you been worried by feeling bad about yourself, or that you are a failure, or have let yourself or your family down? *</mat-label> <br/>
+<mat-radio-group  formControlName="question8" required>&nbsp; &nbsp;
+    <mat-radio-button  value="Not at all">Not at all</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Rarely">Rarely</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Most of the days">Most of the days</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Everyday">Everyday</mat-radio-button>&nbsp; &nbsp;
+</mat-radio-group><br/><br/>
+<mat-label>Have you been bothered by feeling afraid as if something awful might happen? *</mat-label> <br/>
+<mat-radio-group  formControlName="question9" required>&nbsp; &nbsp;
+    <mat-radio-button  value="Not at all">Not at all</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Rarely">Rarely</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Most of the days">Most of the days</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Everyday">Everyday</mat-radio-button>&nbsp; &nbsp;
+</mat-radio-group><br/><br/>
+<mat-label>Have you felt that social networking causes distraction over the college and personal life? *</mat-label> <br/>
+<mat-radio-group  formControlName="question10" required>&nbsp; &nbsp;
+    <mat-radio-button  value="Not at all">Not at all</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Rarely">Rarely</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Most of the days">Most of the days</mat-radio-button>&nbsp; &nbsp;
+    <mat-radio-button  value="Everyday">Everyday</mat-radio-button>&nbsp; &nbsp;
+</mat-radio-group><br/><br/>
+<p>
+    <button class =" buttonCss" type="submit" [disabled]="queForm.invalid" mat-raised-button>Submit</button>&nbsp;&nbsp;
+  </p>
+</form>
+</div>

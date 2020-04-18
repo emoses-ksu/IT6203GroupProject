@@ -1,11 +1,19 @@
 <mat-toolbar>
-    <a><button class="button" mat-raised-button style="margin: 5px">Home</button></a>
+    <a [routerLink]="['/']"><button class="button" mat-raised-button style="margin: 5px">Home</button></a>
 </mat-toolbar>
 <mat-toolbar>
-    <a><button class="button" mat-raised-button style="margin: 5px">Appointments</button></a>
+    <a><button class="button" mat-raised-button [matMenuTriggerFor]="indiviCounselMenu" style="margin: 4px">Individual Counseling</button></a>
 </mat-toolbar>
+<mat-menu #indiviCounselMenu="matMenu">
+    <button mat-menu-item routerLink="/scheduleappointment">
+        <span>Schedule an appointment</span>
+    </button>
+    <button mat-menu-item routerLink="/viewappointment">
+        <span>View Appointment Details</span>
+    </button>
+</mat-menu>
 <mat-toolbar>
-    <a><button class="button" mat-raised-button style="margin: 5px">Meetups</button></a>
+    <a><button class="button" mat-raised-button style="margin: 5px">Group Meetups</button></a>
 </mat-toolbar>
 <mat-toolbar>
     <a><button class="button" mat-raised-button [matMenuTriggerFor]="menu" style="margin: 5px">Blogs</button></a>

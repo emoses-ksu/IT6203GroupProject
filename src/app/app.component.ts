@@ -6,8 +6,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   //title and image display
-  title = 'Mental Health Blog';
+  title = 'KENNESAW STATE UNIVERSITY';
+  date = new Date;
   ksuImage = '/assets/KSULogo.png/';
+  imageSource = "assets/ksuimage.jpeg";
   //I declared properties to get the menu to work. 
   events;
   opened;
